@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "03/08/2022 14:30:14"
+-- Generated on "03/08/2022 15:42:35"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          two_digit_bcd_counter
 -- 
@@ -41,8 +41,8 @@ SIGNAL clr : STD_LOGIC;
 SIGNAL v_cc : STD_LOGIC;
 COMPONENT two_digit_bcd_counter
 	PORT (
-	bcd0 : BUFFER STD_LOGIC_VECTOR(3 DOWNTO 0);
-	bcd1 : BUFFER STD_LOGIC_VECTOR(3 DOWNTO 0);
+	bcd0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	bcd1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	clk : IN STD_LOGIC;
 	clr : IN STD_LOGIC;
 	v_cc : IN STD_LOGIC
