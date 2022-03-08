@@ -5,7 +5,7 @@ entity decade_counter is
 port(
     v_cc  : in std_logic;
     clk   : in std_logic;
-	 clr   : in std_logic;
+    clr   : in std_logic;
     Q_out : out std_logic_vector(3 downto 0)
 );
 end decade_counter;
@@ -18,7 +18,7 @@ architecture structural of decade_counter is
 	 
     component t_flip_flop is
     port(
-        T        : in std_logic;
+             T        : in std_logic;
 	     clk      : in std_logic;
 	     reset    : in std_logic;
 	     Q, Q_bar : out std_logic
@@ -27,15 +27,15 @@ architecture structural of decade_counter is
 	 
 begin
     reset <= '1' when (clr='1') else
-	          '1' when (Q(1)='1' and Q(3)='1') else
-				 --'1' when (v_cc='0') else
-				 '0';
+	     '1' when (Q(1)='1' and Q(3)='1') else
+	     --'1' when (v_cc='0') else
+	     '0';
 
     tff0: t_flip_flop port map(T=>v_cc, clk=>clk, Q=>Q(0), Q_bar=>Q_bar0, reset=>reset);
     tff1: t_flip_flop port map(T=>v_cc, clk=>Q_bar0, Q=>Q(1), Q_bar=>Q_bar1, reset=>reset);
-	 tff2: t_flip_flop port map(T=>v_cc, clk=>Q_bar1, Q=>Q(2), Q_bar=>Q_bar2, reset=>reset);
+    tff2: t_flip_flop port map(T=>v_cc, clk=>Q_bar1, Q=>Q(2), Q_bar=>Q_bar2, reset=>reset);
     tff3: t_flip_flop port map(T=>v_cc, clk=>Q_bar2, Q=>Q(3), reset=>reset);
 	 
-	 Q_out <= Q;
+    Q_out <= Q;
 	 
 end structural; 
