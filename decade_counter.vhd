@@ -13,8 +13,8 @@ end decade_counter;
 architecture structural of decade_counter is
 
     signal reset : std_logic;
-	 signal Q     : std_logic_vector(3 downto 0);
-	 signal Q_bar0, Q_bar1, Q_bar2 : std_logic;
+    signal Q     : std_logic_vector(3 downto 0);
+    signal Q_bar0, Q_bar1, Q_bar2 : std_logic;
 	 
     component t_flip_flop is
     port(
